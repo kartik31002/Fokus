@@ -34,10 +34,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          # If deploying to a repository subdirectory (e.g., /Fokus/), set this:
-          # NEXT_PUBLIC_BASE_PATH: /Fokus
-          # Otherwise, leave it empty or remove this line
-          NEXT_PUBLIC_BASE_PATH: ''
+          NODE_ENV: production
+          NEXT_PUBLIC_BASE_PATH: /Fokus
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

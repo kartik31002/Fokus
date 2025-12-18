@@ -2,7 +2,6 @@
 
 // Get the base path from environment variable, default to empty string (root)
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-const isProd = process.env.NODE_ENV === 'production'
 
 const nextConfig = {
   reactStrictMode: true,
@@ -10,8 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true, // Required for static export
   },
-  // Only set basePath in production if NEXT_PUBLIC_BASE_PATH is set
-  ...(basePath && isProd ? { basePath } : {}),
+  // Set basePath if provided (for GitHub Pages subdirectory deployment)
+  ...(basePath ? { basePath } : {}),
   // Disable trailing slash for cleaner URLs
   trailingSlash: false,
 }
