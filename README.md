@@ -70,8 +70,18 @@ npm run dev
 
 ```bash
 npm run build
-npm start
 ```
+
+The static export will be in the `out/` directory.
+
+### Deploy to GitHub Pages
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+
+Quick steps:
+1. Push your code to a GitHub repository
+2. Enable GitHub Pages in repository Settings → Pages → Source: GitHub Actions
+3. The workflow will automatically build and deploy on every push to `main`
 
 ## 🏗️ Architecture
 
