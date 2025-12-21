@@ -47,6 +47,14 @@ A beautiful, distraction-resistant daily productivity web app with focus mode, t
 - Auto theme detection based on system preferences
 - Smooth theme transitions
 
+### ⏱️ Shared Timer
+- Real-time synchronized countdown timer
+- Works across multiple devices/browsers simultaneously
+- Firebase-powered instant sync
+- Timestamp-based calculation for accuracy
+- Late-joiner support (correct time on page load)
+- Page refresh safe
+
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -77,6 +85,10 @@ The static export will be in the `out/` directory.
 ### Deploy to GitHub Pages
 
 See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed instructions.
+
+### Setup Shared Timer (Firebase)
+
+See [FIREBASE_SETUP.md](./FIREBASE_SETUP.md) for Firebase configuration instructions.
 
 Quick steps:
 1. Push your code to a GitHub repository

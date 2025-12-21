@@ -7,6 +7,7 @@ import FocusMode from '@/components/FocusMode'
 import Rewards from '@/components/Rewards'
 import StreakCounter from '@/components/StreakCounter'
 import NotificationBell from '@/components/Notifications'
+import SharedTimer from '@/components/SharedTimer'
 import { useTasks } from '@/hooks/useTasks'
 import { useTheme } from '@/hooks/useTheme'
 import { useRewards } from '@/hooks/useRewards'
@@ -15,7 +16,7 @@ import { getTodayDateString } from '@/lib/utils'
 import type { Task } from '@/types'
 import Snowfall from 'react-snowfall'
 
-type View = 'dashboard' | 'focus' | 'rewards'
+type View = 'dashboard' | 'focus' | 'rewards' | 'shared-timer'
 
 export default function Home() {
   const [currentView, setCurrentView] = useState<View>('dashboard')
@@ -66,7 +67,6 @@ export default function Home() {
         ? 'bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900' 
         : 'bg-gradient-to-br from-gray-50 via-white to-gray-100'
     }`}>
-      {/* <Snowfall /> */}
       {/* Header */}
       <header className="sticky top-0 z-30 backdrop-blur-md bg-white/80 dark:bg-gray-900/80 border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -105,6 +105,16 @@ export default function Home() {
                   }`}
                 >
                   Rewards
+                </button>
+                <button
+                  onClick={() => setCurrentView('shared-timer')}
+                  className={`px-4 py-2 rounded-lg font-medium transition-colors ${
+                    currentView === 'shared-timer'
+                      ? 'bg-primary-100 dark:bg-primary-900 text-primary-700 dark:text-primary-300'
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800'
+                  }`}
+                >
+                  Shared Timer
                 </button>
               </nav>
             </div>
@@ -148,6 +158,10 @@ export default function Home() {
         {currentView === 'rewards' && (
           <Rewards />
         )}
+
+        {currentView === 'shared-timer' && (
+          <SharedTimer />
+        )}
       </div>
 
       {/* Mobile Navigation */}
@@ -185,6 +199,17 @@ export default function Home() {
           >
             <span className="text-xl">💝</span>
             <span className="text-xs font-medium">Rewards</span>
+          </button>
+          <button
+            onClick={() => setCurrentView('shared-timer')}
+            className={`flex flex-col items-center gap-1 px-4 py-2 rounded-lg transition-colors ${
+              currentView === 'shared-timer'
+                ? 'text-primary-600 dark:text-primary-400'
+                : 'text-gray-600 dark:text-gray-400'
+            }`}
+          >
+            <span className="text-xl">⏱️</span>
+            <span className="text-xs font-medium">Timer</span>
           </button>
         </div>
       </nav>

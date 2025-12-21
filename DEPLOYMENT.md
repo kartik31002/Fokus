@@ -49,7 +49,26 @@ The GitHub Actions workflow will automatically:
 
 After pushing your code, go to **Actions** tab in your repository to see the deployment progress.
 
-### 6. Access Your App
+### 6. Add Firebase Credentials (Required for Shared Timer)
+
+If you're using the Shared Timer feature, you need to add Firebase credentials:
+
+1. Go to your repository on GitHub
+2. Click **Settings** → **Secrets and variables** → **Actions**
+3. Click **"New repository secret"** for each Firebase environment variable:
+   - `NEXT_PUBLIC_FIREBASE_API_KEY` - Your Firebase API key
+   - `NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN` - Your Firebase auth domain
+   - `NEXT_PUBLIC_FIREBASE_DATABASE_URL` - Your Firebase database URL
+   - `NEXT_PUBLIC_FIREBASE_PROJECT_ID` - Your Firebase project ID
+   - `NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET` - Your Firebase storage bucket
+   - `NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID` - Your Firebase messaging sender ID
+   - `NEXT_PUBLIC_FIREBASE_APP_ID` - Your Firebase app ID
+
+   **Note**: Get these values from your Firebase project settings (see FIREBASE_SETUP.md)
+
+4. The workflow file (`.github/workflows/deploy.yml`) is already configured to use these secrets
+
+### 7. Access Your App
 
 Once deployed, your app will be available at:
 - `https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/`
